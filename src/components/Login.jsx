@@ -1,0 +1,102 @@
+import React, { useState, useContext, useEffect } from 'react';
+import { AuthContext } from '../context/AuthContext';
+import { useNavigate, Link } from 'react-router-dom';
+
+const Login = () => {
+  const { login, currentUser } = useContext(AuthContext);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (currentUser) navigate('/');
+  }, [currentUser, navigate]);
+
+  const handleLogin = async () => {
+    try {
+      await login(email, password);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  return (
+    <div className='min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-indigo-50 to-slate-100 px-4'>
+      <div className='w-full max-w-md'>
+        <div className='mb-8 text-center'>
+          <h1 className='text-3xl font-bold tracking-tight text-slate-800'>
+            Welcome back
+          </h1>
+          <p className='text-slate-500 mt-2 text-sm'>
+            Log in to continue managing your tasks
+          </p>
+        </div>
+        <div className='bg-white/80 backdrop-blur-sm shadow-sm border border-slate-200 rounded-xl p-8 relative overflow-hidden'>
+          <div className='absolute inset-0 pointer-events-none [mask-image:radial-gradient(circle_at_50%_30%,white,transparent)]'></div>
+          {error && (
+            <div className='mb-4 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-600'>
+              {error}
+            </div>
+          )}
+          <div className='space-y-5 relative'>
+            <div>
+              <label
+                className='block text-sm font-medium text-slate-700 mb-1'
+                htmlFor='email'
+              >
+                Email
+              </label>
+              <input
+                id='email'
+                type='email'
+                autoComplete='email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className='w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition'
+                placeholder='you@example.com'
+              />
+            </div>
+            <div>
+              <label
+                className='block text-sm font-medium text-slate-700 mb-1'
+                htmlFor='password'
+              >
+                Password
+              </label>
+              <input
+                id='password'
+                type='password'
+                autoComplete='current-password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className='w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition'
+                placeholder='••••••••'
+              />
+            </div>
+            <button
+              onClick={handleLogin}
+              className='w-full inline-flex justify-center items-center gap-2 rounded-lg bg-indigo-600 text-white text-sm font-medium px-4 py-2.5 shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed transition'
+            >
+              Login
+            </button>
+          </div>
+          <div className='mt-6 text-center text-sm text-slate-600'>
+            Need an account?{' '}
+            <Link
+              className='font-medium text-indigo-600 hover:text-indigo-500'
+              to='/signup'
+            >
+              Sign up
+            </Link>
+          </div>
+        </div>
+        <p className='mt-8 text-center text-xs text-slate-400'>
+          Secure login powered by Firebase Auth
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
