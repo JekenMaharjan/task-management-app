@@ -68,16 +68,16 @@ const Tasks = () => {
   };
 
     return (
-        <div className='w-screen h-screen bg-gradient-to-b from-purple-900 to-black text-white'>
-            <div className='flex justify-center bg-gray-900/50 p-5'>
-                <h2 className='text-4xl font-bold mb-4'>Welcome To Task Management App</h2>
+        <div className='w-screen h-screen bg-gradient-to-b from-green-300 to-gray-500'>
+            <div className='flex justify-center bg-gradient-to-r from-blue-900/70 to-gray-900/70 p-5 border-b-1 border-gray-400 shadow-xl'>
+                <h2 className='text-4xl font-bold text-blue-300 mb-4'>Welcome To Task Management App</h2>
             </div>
             <div className='max-w-2xl mx-auto p-5'>
                 <div className='flex items-center justify-between mb-6'>
                     <h2 className='text-2xl font-bold'>Your Tasks</h2>
                     <button
                     onClick={logout}
-                    className='text-sm bg-red-500 hover:bg-red-600 hover:scale-105 transition-all duration-300 cursor-pointer px-3 py-1 rounded'
+                    className='text-sm bg-red-600 hover:bg-red-500 hover:scale-105 transition-all duration-300 cursor-pointer px-3 py-1 rounded text-white'
                     >
                     Logout
                     </button>
@@ -92,7 +92,7 @@ const Tasks = () => {
                     />
                     <button
                     onClick={handleAddTask}
-                    className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 hover:scale-105 transition-all duration-300 cursor-pointer'
+                    className='bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500 hover:scale-105 transition-all duration-300 cursor-pointer'
                     >
                     Add
                     </button>
@@ -116,14 +116,14 @@ const Tasks = () => {
                             className='mr-2'
                             />
                             <span
-                            className={task.completed ? 'line-through text-gray-400' : ''}
+                            className={task.completed ? 'line-through text-gray-600' : ''}
                             >
                             {task.title}
                             </span>
                         </label>
                         <button
                             onClick={() => handleDeleteTask(task.id)}
-                            className='text-xs bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 hover:scale-105 transition-all duration-300 cursor-pointer'
+                            className='text-xs bg-red-600 text-white px-2 py-1 rounded hover:bg-red-500 hover:scale-105 transition-all duration-300 cursor-pointer'
                         >
                             Delete
                         </button>
