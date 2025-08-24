@@ -4,7 +4,8 @@ A modern, responsive task management application built with **React**, **Vite**,
 
 
 ##  Live Demo
-Access the live version here: 
+Access the live version here: [Access the live version here](https://task-management-app-jekode.vercel.app)
+
 <a href="https://task-management-app-jekode.vercel.app" target="_blank">
 task-management-app-jekode.vercel.app
 </a>
@@ -75,7 +76,7 @@ task-management-app-jekode.vercel.app
    ├─ package.json
    ├─ vite.config.js
    └─ README.md
-
+   ```
 
 ## Contributing
 
