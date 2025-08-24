@@ -15,7 +15,7 @@ Access the live version here: [task-management-app-jekode.vercel.app](https://ta
 
 
 ##  Technologies Used
-- **Frontend:** React, Vite, JavaScript (ES6+), CSS  
+- **Frontend:** React, Vite, JavaScript (ES6+), Tailwind CSS  
 - **Linting & Tooling:** ESLint  
 - **Backend / Database:** Firebase (Firestore, Authentication, etc.)  
 - **Deployment:** Vercel
